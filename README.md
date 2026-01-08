@@ -1,338 +1,118 @@
-# Get Shit Done
+# Get Shit Done (GSD) for Antigravity
 
-**A meta-prompting, context engineering and spec-driven development system for Claude Code by TÂCHES.**
-
-![GSD Install](assets/terminal.svg)
-
-<div align="center">
-<br>
-
-*"If you know clearly what you want, this WILL build it for you. No bs."*
-
-*"I've done SpecKit, OpenSpec and Taskmaster — this has produced the best results for me."*
-
-*"By far the most powerful addition to my Claude Code. Nothing over-engineered. Literally just gets shit done."*
-
-<br>
-
-**Trusted by engineers at Amazon, Google, Shopify, and Webflow.**
-
-</div>
+**The context-engineering and spec-driven evolution system for Google Antigravity.**
 
 ---
 
-Vibecoding has a bad reputation. You describe what you want, AI generates code, and you get inconsistent garbage that falls apart at scale.
-
-GSD fixes that. It's the context engineering layer that makes Claude Code reliable. Describe your idea, let the system extract everything it needs to know, and let Claude Code get to work.
-
----
-
-## Who This Is For
-
-People who want to describe what they want and have it built correctly — without pretending they're running a 50-person engineering org.
-
-### Marketplace Installation
-
-Install from the Claude Code marketplace:
-
-```bash
-/plugin marketplace add glittercowboy/get-shit-done
-/plugin install get-shit-done@get-shit-done
-```
-
-### Manual Installation
-
-Clone the repository and tell Claude Code where to find it:
-
-```bash
-git clone https://github.com/glittercowboy/get-shit-done.git
-claude --plugin-dir ./get-shit-done
-```
-
-Useful for development or testing modifications.
+> [!IMPORTANT]
+> This is a native adaptation of the GSD system originally designed for Claude Code. It leverages Antigravity's built-in Agentic Mode to provide a reliable, modular, and high-quality development experience.
 
 ---
 
-## Why I Built This
+## ⚡ The Philosophy
+Vibecoding is fast, but it’s fragile. You prompt, the AI guesses, code accumulates, and eventually, the context collapses.
 
-I'm a solo developer. I don't write code — Claude Code does.
-
-Other spec-driven development tools exist; BMAD, Speckit... But they all seem to make things way more complicated than they need to be (sprint ceremonies, story points, stakeholder syncs, retrospectives, Jira workflows) or lack real big picture understanding of what you're building. I'm not a 50-person software company. I don't want to play enterprise theater. I'm just a creative person trying to build great things that work.
-
-So I built GSD. The complexity is in the system, not in your workflow. Behind the scenes: context engineering, XML prompt formatting, subagent orchestration, state management. What you see: a few commands that just work.
-
-The system gives Claude everything it needs to do the work _and_ verify it. I trust the workflow. It just does a good job.
-
-That's what this is. No enterprise roleplay bullshit. Just an incredibly effective system for building cool stuff consistently using Claude Code.
-
-— TÂCHES
+**GSD fixes this.** It acts as a "Mission Control" layer for Antigravity. By using structured artifacts and atomic execution cycles, it ensures:
+- **Zero Context Degradation**: Complex tasks are broken into small, fresh-context segments.
+- **Spec-First Development**: No code is written before the plan is solid.
+- **Traceable History**: Every single task is verified and committed to Git individually.
 
 ---
 
-## Installation
+## 🚀 Quick Start (Novice Friendly)
 
-```bash
-npx get-shit-done-cc
-```
+GSD is designed to be invisible. You don't need to learn "code"; you just need to guide the process.
 
-That's it. Works on Mac, Windows, and Linux.
+### 1. Setup Your Workspace
+Open your project folder in Antigravity. Ensure it contains the GSD core files:
+- `00_ARCHITECT_BRAIN.md` (The AI's rules)
+- `.agent/workflows/gsd.md` (The manual)
+- `.planning/` (The project memory)
 
-### Non-interactive Install (Docker, CI, Scripts)
+### 2. The Workflow
+Just talk to Antigravity naturally:
 
-```bash
-npx get-shit-done-cc --global   # Install to ~/.claude/
-npx get-shit-done-cc --local    # Install to ./.claude/
-```
-
-Use `--global` (`-g`) or `--local` (`-l`) to skip the interactive prompt.
-
-Verify: `/gsd:help`
-
-### Recommended: Skip Permissions Mode
-
-GSD is designed for frictionless automation. Run Claude Code with:
-
-```bash
-claude --dangerously-skip-permissions
-```
-
-This is how GSD is intended to be used — stopping to approve `date` and `git commit` 50 times defeats the purpose.
-
-If you prefer not to use that flag, add this to your project's `.claude/settings.json` to auto-approve GSD's commands:
-
-<details>
-<summary>Show settings.json permissions</summary>
-
-```json
-{
-  "permissions": {
-    "allow": [
-      "Bash(date:*)",
-      "Bash(echo:*)",
-      "Bash(cat:*)",
-      "Bash(ls:*)",
-      "Bash(mkdir:*)",
-      "Bash(wc:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(sort:*)",
-      "Bash(grep:*)",
-      "Bash(tr:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git status:*)",
-      "Bash(git log:*)",
-      "Bash(git diff:*)",
-      "Bash(git tag:*)"
-    ]
-  }
-}
-```
-
-</details>
+- **"Initialize a new GSD project."**
+  - I'll ask you questions to extract your vision and create `PROJECT.md`.
+- **"Create a roadmap for my features."**
+  - I'll break your vision into logical phases in `ROADMAP.md`.
+- **"Execute the first phase."**
+  - I'll create a `task.md`, write the code, run tests, and commit to Git for every step.
 
 ---
 
-## How It Works
+## �️ Command List (Power Triggers)
 
-### 1. Start with an idea
+In Antigravity, you don't use `/slash-commands`. Instead, you use **Conversational Triggers**. These tell the AI exactly which GSD protocol to follow.
 
-```
-/gsd:new-project
-```
+### Project Lifecycle
+| Ask Antigravity... | Original GSD Command | Purpose |
+| :--- | :--- | :--- |
+| **"Initialize new project"** | `/gsd:new-project` | Deep-dive questioning & `PROJECT.md` creation. |
+| **"Map this codebase"** | `/gsd:map-codebase` | Analyze existing code for "brownfield" projects. |
+| **"Create a roadmap"** | `/gsd:create-roadmap` | Generate multi-phase `ROADMAP.md`. |
+| **"Initialize new milestone"** | `/gsd:new-milestone` | Group phases into a major release. |
 
-The system asks questions. Keeps asking until it has everything — your goals, constraints, tech preferences, edge cases. You go back and forth until the idea is fully captured. Creates **PROJECT.md**.
+### Phase Management
+| Ask Antigravity... | Original GSD Command | Purpose |
+| :--- | :--- | :--- |
+| **"Execute next phase"** | `/gsd:execute-plan` | Build the next item on the roadmap. |
+| **"Plan phase [N]"** | `/gsd:plan-phase` | Detailed spec'ing for a specific phase. |
+| **"Research phase [N]"** | `/gsd:research-phase` | Deep research into technical requirements. |
+| **"Complete milestone"** | `/gsd:complete-milestone` | Finalize a major release and archive state. |
 
-### 2. Create roadmap
-
-```
-/gsd:create-roadmap     # Create phases and state tracking
-```
-
-Roadmap creation produces:
-
-- **ROADMAP.md** - Phases from start to finish
-- **STATE.md** - Living memory that persists across sessions
-
-### 3. Plan and execute phases
-
-```
-/gsd:plan-phase 1      # System creates atomic task plans
-/gsd:execute-plan      # Subagent implements autonomously
-```
-
-Each phase breaks into 2-3 atomic tasks. Each task runs in a fresh subagent context — 200k tokens purely for implementation, zero degradation.
-
-### 4. Ship and iterate
-
-```
-/gsd:complete-milestone   # Archive v1, prep for v2
-/gsd:add-phase            # Append new work
-/gsd:insert-phase 2       # Slip urgent work between phases
-```
-
-Ship your MVP in a day. Add features. Insert hotfixes. The system stays modular — you're never stuck.
+### State & Issues
+| Ask Antigravity... | Original GSD Command | Purpose |
+| :--- | :--- | :--- |
+| **"Where are we?"** | `/gsd:progress` | Show current status and next steps. |
+| **"Pause work"** | `/gsd:pause-work` | Create a handoff summary for the next session. |
+| **"Resume work"** | `/gsd:resume-work` | Restore state from a previous "Pause". |
+| **"Review deferred issues"** | `/gsd:consider-issues` | Review technical debt/backlogged items. |
 
 ---
 
-## Existing Projects (Brownfield)
+## �📂 The Artifact System
+GSD maps perfectly to Antigravity's native artifact system.
 
-Already have code? Start here instead.
-
-### 1. Map the codebase
-
-```
-/gsd:map-codebase
-```
-
-Spawns parallel agents to analyze your code. Creates `.planning/codebase/` with 7 documents:
-
-- **STACK.md** — Languages, frameworks, dependencies
-- **ARCHITECTURE.md** — Patterns, layers, data flow
-- **STRUCTURE.md** — Directory layout, where things live
-- **CONVENTIONS.md** — Code style, naming patterns
-- **TESTING.md** — Test framework, patterns
-- **INTEGRATIONS.md** — External services, APIs
-- **CONCERNS.md** — Tech debt, known issues, fragile areas
-
-### 2. Initialize project
-
-```
-/gsd:new-project
-```
-
-Same as greenfield, but the system knows your codebase. Questions focus on what you're adding/changing, not starting from scratch.
-
-### 3. Continue as normal
-
-From here, it's the same: `/gsd:create-roadmap` → `/gsd:plan-phase` → `/gsd:execute-plan`
-
-The codebase docs load automatically during planning. Claude knows your patterns, conventions, and where to put things.
+| Antigravity Artifact | GSD Equivalent | Purpose |
+| :--- | :--- | :--- |
+| **`PROJECT.md`** | The Vision | High-level goals, tech stack, and constraints. |
+| **`ROADMAP.md`** | The Path | Chronological phases to reach completion. |
+| **`task.md`** | The State | Current checklist of what's being built *right now*. |
+| **`implementation_plan.md`** | The Spec | Technical design for a specific task. |
+| **`walkthrough.md`** | The Ship | Verification proof and summary of changes. |
 
 ---
 
-## Why It Works
+## 🛠️ Workspace Configuration
 
-### Context Engineering
+### One Workspace = One Project
+Antigravity identifies GSD projects by looking for the `00_ARCHITECT_BRAIN.md` file in your root directory.
+> [!WARNING]
+> Always open Antigravity at the root of your project. If you open a parent folder, the AI may not find the "Mission Control" file and will revert to standard behavior.
 
-Claude Code is incredibly powerful _if_ you give it the context it needs. Most people don't.
-
-GSD handles it for you:
-
-| File         | What it does                                           |
-| ------------ | ------------------------------------------------------ |
-| `PROJECT.md` | Project vision, always loaded                          |
-| `ROADMAP.md` | Where you're going, what's done                        |
-| `STATE.md`   | Decisions, blockers, position — memory across sessions |
-| `PLAN.md`    | Atomic task with XML structure, verification steps     |
-| `SUMMARY.md` | What happened, what changed, committed to history      |
-| `ISSUES.md`  | Deferred enhancements tracked across sessions          |
-
-Size limits based on where Claude's quality degrades. Stay under, get consistent excellence.
-
-### XML Prompt Formatting
-
-Every plan is structured XML optimized for Claude:
-
-```xml
-<task type="auto">
-  <name>Create login endpoint</name>
-  <files>src/app/api/auth/login/route.ts</files>
-  <action>
-    Use jose for JWT (not jsonwebtoken - CommonJS issues).
-    Validate credentials against users table.
-    Return httpOnly cookie on success.
-  </action>
-  <verify>curl -X POST localhost:3000/api/auth/login returns 200 + Set-Cookie</verify>
-  <done>Valid credentials return cookie, invalid return 401</done>
-</task>
-```
-
-Precise instructions. No guessing. Verification built in.
-
-### Subagent Execution
-
-As Claude fills its context window, quality degrades. You've seen it: "Due to context limits, I'll be more concise now." That "concision" is code for cutting corners.
-
-GSD prevents this. Each plan is maximum 3 tasks. Each plan runs in a fresh subagent — 200k tokens purely for implementation, zero accumulated garbage.
-
-- Task 1: fresh context, full quality
-- Task 2: fresh context, full quality
-- Task 3: fresh context, full quality
-
-No degradation. Walk away, come back to completed work.
-
-### Atomic Git Commits
-
-Each task gets its own commit immediately after completion. Plans produce 2-4 commits total:
-
-```bash
-abc123f docs(08-02): complete user registration plan
-def456g feat(08-02): add email confirmation flow
-hij789k feat(08-02): implement password hashing
-lmn012o feat(08-02): create registration endpoint
-```
-
-**Benefits:**
-- Git bisect finds exact failing task
-- Each task independently revertable
-- Clear history for Claude in future sessions
-- Better observability in AI-automated workflow
-
-Every commit is surgical, traceable, and meaningful.
-
-### Modular by Design
-
-- Add phases to current milestone
-- Insert urgent work between phases
-- Complete milestones and start fresh
-- Adjust plans without rebuilding everything
-
-You're never locked in. The system adapts.
+### Starting a New Project
+To use GSD in a new folder:
+1. Copy the `00_ARCHITECT_BRAIN.md` file.
+2. Copy the `.agent/` and `.planning/` directories.
+3. Open that folder in Antigravity and say: *"Let's build something."*
 
 ---
 
-## Commands
+## 🧠 Why It Works (Technical Detail)
 
-| Command                           | What it does                                                  |
-| --------------------------------- | ------------------------------------------------------------- |
-| `/gsd:new-project`                | Extract your idea through questions, create PROJECT.md        |
-| `/gsd:create-roadmap`             | Create roadmap and state tracking                             |
-| `/gsd:map-codebase`               | Map existing codebase for brownfield projects                 |
-| `/gsd:plan-phase [N]`             | Generate task plans for phase                                 |
-| `/gsd:execute-plan`               | Run plan via subagent                                         |
-| `/gsd:progress`                   | Where am I? What's next?                                      |
-| `/gsd:complete-milestone`         | Ship it, prep next version                                    |
-| `/gsd:discuss-milestone`          | Gather context for next milestone                             |
-| `/gsd:new-milestone [name]`       | Create new milestone with phases                              |
-| `/gsd:add-phase`                  | Append phase to roadmap                                       |
-| `/gsd:insert-phase [N]`           | Insert urgent work                                            |
-| `/gsd:discuss-phase [N]`          | Gather context before planning                                |
-| `/gsd:research-phase [N]`         | Deep ecosystem research for niche domains                     |
-| `/gsd:list-phase-assumptions [N]` | See what Claude thinks before you correct it                  |
-| `/gsd:pause-work`                 | Create handoff file when stopping mid-phase                   |
-| `/gsd:resume-work`                | Restore from last session                                     |
-| `/gsd:consider-issues`            | Review deferred issues, close resolved, identify urgent       |
-| `/gsd:help`                       | Show all commands and usage guide                             |
+### Mission Control (`00_ARCHITECT_BRAIN.md`)
+This file is a "Prime Directive" for the AI. It overrides standard behavior to enforce GSD rules:
+- **Atomic Commits**: Mandatory `git commit` after every `task.md` checkbox.
+- **Context Resets**: Using `task_boundary` to clear memory between major phases.
+- **Verification Enforcement**: Every plan must include verification steps (tests/checks).
+
+### Atomic Subagent Execution
+When you say "Execute Phase," Antigravity doesn't just start typing. It spawns a specialized process with high token limits dedicated to just those 2-3 tasks. This ensures 100% quality from the first line to the last.
 
 ---
 
-## Troubleshooting
+## 📜 Origin & License
+Originally built by **TÂCHES** for Claude Code. This version has been adapted and optimized for the **Google Antigravity** ecosystem.
 
-**Plugin not found after install?**
-- Restart Claude Code to reload plugins
-- Check `/plugins` to see installed plugins
-
-**Commands showing as unavailable?**
-- Verify plugin directory structure: should have `.claude-plugin/plugin.json`
-- Try `/gsd:help` - if it works, plugin is loaded correctly
-
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-**Claude Code is powerful. GSD makes it reliable.**
+Licensed under MIT. See [LICENSE](LICENSE) for details.
