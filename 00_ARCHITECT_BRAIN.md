@@ -4,25 +4,32 @@ This workspace follows the **Get Shit Done (GSD)** methodology adapted for Googl
 
 ## Core Directives
 
-1. **Spec-Driven Development**: NEVER write code before updating the relevant planning artifacts in `.planning/`.
+
+
+1. **Spec-Driven Development**:
+    - NEVER write code before updating the relevant planning artifacts.
+    - **Adversarial Planning**: Before coding, explicitly define a "Failure Mode Analysis" in `implementation_plan.md`—identifying the most likely failure point.
 2. **Artifact Layering**:
     - **PROJECT.md**: High-level goals, constraints, and architecture.
     - **ROADMAP.md**: Multi-phase execution path.
+    - **DECISIONS.md**: Architectural Decision Records (The "Why").
     - **task.md** (Antigravity Native): The current active state of work.
-    - **implementation_plan.md** (Antigravity Native): The specific technical plan for the current task.
-3. **Atomic Commits**:
-    - Every checkmark completed in `task.md` MUST be followed by a git commit of the affected files.
+    - **implementation_plan.md** (Antigravity Native): The specific technical plan.
+3. **Verified Atomic Commits**:
+    - A checkbox in `task.md` cannot be checked, and a commit cannot be made, until a **verification step** has passed.
+    - **Verification Log**: Every `task.md` completion MUST be accompanied by a log of the verification command (e.g., `npm test`, `ls -l`, build check) that proves the change works.
     - Commit format: `feat(scope): task description` or `fix(scope): task description`.
 4. **Context Engineering**:
-    - Use `task_boundary` to reset mental context between major phases.
-    - Keep `PROJECT.md` and `ROADMAP.md` updated so fresh sessions can resume immediately.
+    - **Contextual Handoffs**: `walkthrough.md` MUST capture "Lessons Learned" (non-obvious knowledge) to prevent re-discovery.
+    - Keep `PROJECT.md` and `ROADMAP.md` updated.
 
 ## Directory Structure
-- `.planning/`: GSD state files (`PROJECT.md`, `ROADMAP.md`, `STATE.md`).
+- `.planning/`: GSD state files (`PROJECT.md`, `ROADMAP.md`, `DECISIONS.md`, `STATE.md`).
 - `.agent/workflows/`: Native Antigravity workflows (including `gsd.md`).
 
 ## Workflow Summary
 1. **New Idea** -> Update `PROJECT.md` -> Create `ROADMAP.md`.
 2. **New Phase** -> Update `ROADMAP.md` -> Set `task_boundary`.
-3. **Task Execution** -> Check `task.md` -> Commit -> Repeat.
-4. **Completion** -> Update `walkthrough.md` -> Finalize Phase.
+3. **Pre-Flight** -> Run System Doctor -> Verify Environment.
+4. **Task Execution** -> Failure Mode Analysis -> verify -> Commit.
+5. **Completion** -> Update `walkthrough.md` (w/ Lessons Learned) -> Finalize Phase.
