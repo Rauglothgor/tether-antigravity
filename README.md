@@ -116,4 +116,4 @@ To update the GSD system:
 2. Mirror changes to `.gsd/templates/workflows/`.
 3. Commit and push to GitHub.
 
-Licensed under MIT. Originally adapted from TÂCHES get-shit-done for Claude Code and influenced by Boris Cherny's workflows for Claude Code.
+Licensed under MIT. Originally adapted from TÂCHES <a href="https://github.com/glittercowboy/get-shit-done">get-shit-done</a> for Claude Code and influenced by Boris Cherny's workflows for Claude Code.
