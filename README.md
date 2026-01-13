@@ -13,6 +13,35 @@ Standard AI coding is fast but fragile. Context degrades, the AI guesses, and pr
 
 ---
 
+## 🚀 Global Setup (Across All Your PCs)
+
+GSD uses Antigravity's **Global Workflows** to stay portable. You only need to do this once per machine:
+
+1. **Create the Workflow Folder** (if it doesn't exist):
+   - Navigate to `~/.gemini/antigravity/workflows/`.
+2. **Add the GSD Setup Workflow**:
+   - Create a file named `gsd-setup.md`.
+   - Paste the contents of [.gsd/templates/gsd-setup.md](file:///.gsd/templates/gsd-setup.md) into it.
+3. **Verify**:
+   - In any project, say: **"Initialize GSD"**.
+
+---
+
+## 🏗️ How it Works
+
+Once GSD is pulled into a project:
+
+1. **Mission Control (`00_ARCHITECT_BRAIN.md`)**:
+   The AI reads this root-level file first. It enforces Spec-First development, Atomic Commits, and Specialist Roles.
+2. **Shared Memory (`GEMINI.md`)**:
+   The AI logs its mistakes here. This document "fine-tunes" the AI to your project's specific quirks.
+3. **Automated State (`.gsd/STATE.json`)**:
+   Tracks progress, accuracy, and project health metrics automatically. See the detailed [Metrics Specification](file:///.gsd/METRICS_SPEC.md).
+4. **Knowledge Base (`.gsd/knowledge/`)**:
+   Persistent store for patterns and lessons extracted during `/archive-phase`.
+
+---
+
 ## 🚀 The "Novice" Guide (How this works for you)
 
 If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Crew**. You don't need to know how to lay bricks; you just need to describe the house.
@@ -20,8 +49,8 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 ### Core Concepts
 * **The Blueprint (`/specify`)**: The AI turns your "Plain English" ideas into a professional technical plan before it starts building.
 * **The Safety Inspector (`FAILURE_MODES.md`)**: The system brainstorms everything that could go wrong and builds "safety nets" to prevent crashes.
-* **The Specialized Crew**: Instead of one AI, GSD uses "roles." An **Architect** designs, a **Coder** builds, and a **Reviewer** checks for mistakes.
-* **The Crew's Diary (`GEMINI.md`)**: Every mistake is written down. The AI literally gets smarter the more you use it because it never makes the same mistake twice.
+* **The Specialized Crew**: Instead of one AI, GSD uses roles like **Architect**, **Coder**, and **Reviewer**.
+* **The Crew's Diary (`GEMINI.md`)**: Every mistake is written down so the AI never makes it twice.
 
 ---
 
@@ -30,33 +59,49 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 ### The "God Mode" Trigger
 | Command | Action |
 | :--- | :--- |
-| **`/godmode [goal]`** | **Full Autopilot**. The agent will design, build, test, self-correct, and document your entire request from start to finish without needing your help. |
+| **`/godmode [goal]`** | **Full Autopilot**. The agent will design, build, test, self-correct, and document your entire request from start to finish. |
 
 ### Operational Commands
 | Command | Purpose |
 | :--- | :--- |
 | **`/status`** | Shows project health, progress, and AI accuracy metrics. |
-| **`/decision [topic]`** | Logs a major choice in `DECISIONS.md` so you know *why* the AI did something. |
-| **`/blocker [msg]`** | Used by the AI to stop work and ask you for help if it hits an external wall. |
-| **`/rollback`** | The "Panic Button." Instantly reverts the code to the last working version. |
+| **`/decision [topic]`** | Logs a major choice in `DECISIONS.md` (The "Why"). |
+| **`/specify [feature]`** | Generates a detailed `FEATURE_SPEC.md` before coding. |
+| **`/orchestrate`** | Decomposes roadmap phases into tasks for specialist roles. |
+| **`/archive-phase`** | Extracts lessons to knowledge base and clears context. |
+| **`/rollback`** | **Panic Button**. Reverts code to the last working version. |
+| **`/blocker [msg]`** | Used by the AI to stop work and ask for help. |
 
 ---
 
-## �️ Real-World Use Cases
+## 🛠️ Real-World Use Cases
 
 ### 1. The Small Business Inventory Tracker
 * **User says**: `/godmode Create an app to track my shop inventory using barcode scanning.`
-* **AI does**: Defines the rules, sets up the camera access, builds the database, and tests it in a virtual browser. If the scanner fails, it fixes the code itself until it works.
+* **AI does**: Defines rules, builds the database, and tests it. Self-corrects any scanner bugs.
 
 ### 2. The Smart Home Dashboard
 * **User says**: `/godmode Build a dashboard for my Proxmox server that shows CPU usage.`
-* **AI does**: Researches your server settings, creates the visual charts, and ensures the data updates in real-time.
+* **AI does**: Researches server settings, creates visual charts, and ensures real-time updates.
 
 ---
 
-## 📂 The Archive & Memory
-When a phase is finished, run **`/archive-phase`**. This compresses the "clutter" and saves the "lessons" into your long-term knowledge base, keeping your AI fast and sharp.
+## 📂 The Artifact System
+
+| Artifact | Role |
+| :--- | :--- |
+| **`PROJECT.md`** | High-level goals and tech stack. |
+| **`ROADMAP.md`** | Multi-phase chronological plan with dependencies. |
+| **`task.md`** | The active checklist for the current phase. |
+| **`DECISIONS.md`**| The "Why" behind architectural choices. |
+| **`AUDIT.md`** | Structured log of all agent actions and approvals. |
 
 ---
+
+## 🛠️ Maintainer Guide
+To update the GSD system:
+1. Modify the workflows in `.agent/workflows/`.
+2. Mirror changes to `.gsd/templates/workflows/`.
+3. Commit and push to GitHub.
 
 Licensed under MIT. Originally adapted from Boris Cherny's workflows for Claude Code.
