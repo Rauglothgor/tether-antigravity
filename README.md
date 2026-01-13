@@ -1,121 +1,62 @@
-# Get Shit Done (GSD) for Antigravity
+# Get Shit Done (GSD) 2.0: Mission Control for AI
 
-**The global, context-engineering system for Google Antigravity.**
+**The Enterprise-Grade Agentic OS for Google Antigravity.**
 
----
-
-> [!IMPORTANT]
-> This is a native adaptation of the GSD system. It leverages Antigravity's **Global Workflows** to provide a consistent, high-quality development experience across all your machines.
+GSD 2.0 is a disciplined "Mission Control" layer that keeps AI agents focused, spec-driven, and context-aware. It moves beyond simple chat by enforcing professional engineering standards automatically.
 
 ---
 
-## ⚡ The Philosophy
-Vibecoding is fast, but fragile. Context degrades, the AI guesses, and your project becomes a "hallucination soup."
+## ⚡ The Philosophy: From "Chat" to "Build"
+Standard AI coding is fast but fragile. Context degrades, the AI guesses, and projects become "hallucination soup." 
 
-**GSD is the antidote.** It creates a "Mission Control" layer that keeps the AI disciplined, spec-first, and context-aware.
-
----
-
-## 🚀 Global Setup (Across All Your PCs)
-
-GSD uses Antigravity's Global Workflows to stay portable. You only need to do this once per machine:
-
-1. **Create the Workflow Folder** (if it doesn't exist):
-   - Navigate to `~/.gemini/antigravity/workflows/`.
-2. **Add the GSD Setup Workflow**:
-   - Create a file named `gsd-setup.md`.
-   - Paste the contents of [.gsd/templates/gsd-setup.md](file:///.gsd/templates/gsd-setup.md) into it.
-3. **Verify**:
-   - In any project, say: **"Initialize GSD"**.
+**GSD is the antidote.** It creates a "Command and Control" structure that ensures every line of code is backed by a specification, verified by a test, and logged for long-term memory.
 
 ---
 
-## 🏗️ How it Works
+## 🚀 The "Novice" Guide (How this works for you)
 
-Once GSD is pulled into a project:
+If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Crew**. You don't need to know how to lay bricks; you just need to describe the house.
 
-1. **Mission Control (`00_ARCHITECT_BRAIN.md`)**:
-   The AI reads this root-level file first. It enforces Spec-First development, Atomic Commits, and Adversarial Planning.
-2. **Shared Memory (`GEMINI.md`)**:
-   The AI logs its mistakes here. This document "fine-tunes" the AI to your project's specific quirks.
-3. **Automated State (`.gsd/STATE.json`)**:
-   Tracks progress, estimate accuracy, and project health metrics automatically. See the detailed [Metrics Specification](file:///.gsd/METRICS_SPEC.md).
+### Core Concepts
+* **The Blueprint (`/specify`)**: The AI turns your "Plain English" ideas into a professional technical plan before it starts building.
+* **The Safety Inspector (`FAILURE_MODES.md`)**: The system brainstorms everything that could go wrong and builds "safety nets" to prevent crashes.
+* **The Specialized Crew**: Instead of one AI, GSD uses "roles." An **Architect** designs, a **Coder** builds, and a **Reviewer** checks for mistakes.
+* **The Crew's Diary (`GEMINI.md`)**: Every mistake is written down. The AI literally gets smarter the more you use it because it never makes the same mistake twice.
 
 ---
 
-## 🗣️ The Complete Command Reference
+## 🗣️ Command Reference
 
-GSD imbues Antigravity with a suite of "superpowers." You can trigger these via slash commands or natural language.
-
-### Operational Commands (Slash Triggers)
-| Command | Purpose | Process |
-| :--- | :--- | :--- |
-| **`/status`** | **Health Check** | Calculates completion % from `ROADMAP.md` and `STATE.json`. |
-| **`/rollback`** | **Panic Button** | Reverts to the last known-good state instantly via Git. |
-| **`/blocker [msg]`** | **Stop Work** | Logs a dependency that requires your intervention. |
-| **`/archive-phase`** | **Context Save** | Compresses old tasks to keep the AI fast and focused. |
-| **`/ralph-wiggum`** | **Deep Thought** | Forces the AI to explain its plan twice before acting. |
-| **`/commit-push-pr`**| **Ship It** | High-quality commit, push, and PR generation. |
-| **`/debug`** | **Exorcism** | Isolate and fix bugs with mandatory test verification. |
-| **`/refactor`** | **Spring Clean** | Simplify code without changing functionality. |
-
-### Strategic Triggers (Natural Language)
-| Say to Antigravity... | Result |
+### The "God Mode" Trigger
+| Command | Action |
 | :--- | :--- |
-| "Initialize new project" | Agent interviews you to build a `PROJECT.md`. |
-| "Map this codebase" | Agent researches existing code to build a map. |
-| "Create a roadmap" | Agent generates a multi-phase `ROADMAP.md`. |
-| "Execute Phase [N]" | The "Do It" button. Runs the full Plan/Build/Verify cycle. |
-| "Plan Phase [N]" | Creates a detailed technical spec without writing code. |
-| "Research Phase [N]" | Deep-dives into technical unknowns. |
-| "Pause work" | Generates a high-quality handoff summary for later. |
-| "Resume work" | Reads the handoff and picks up exactly where it left off. |
+| **`/godmode [goal]`** | **Full Autopilot**. The agent will design, build, test, self-correct, and document your entire request from start to finish without needing your help. |
 
----
-
-## 🛫 First Flight: An Example Workflow
-
-Stumbling across GSD for the first time? Here is how you use it to build a feature from scratch.
-
-### 1. The Briefing
-You open a fresh folder and say: **"Initialize a new project called 'Starship Manager'."**
-> **Antigravity**: "I'll help you with that. First, what are the 3 core features of this manager? What's your tech stack?"
-> 
-> *You answer, and it creates a beautiful `PROJECT.md`.*
-
-### 2. The Map
-You say: **"Create the roadmap for Phase 1: Authentication."**
-> **Antigravity**: "Roadmap generated. I've broken Phase 1 into 3 parts: Database Setup, Login API, and UI. View it in [.planning/ROADMAP.md](file:///.planning/ROADMAP.md)."
-
-### 3. The Execution (The Magic Part)
-You say: **"Execute Phase 1, Step 1."**
-> **Antigravity**: 
-> 1. It creates an `implementation_plan.md` showing exactly what code it will write.
-> 2. It **waits** for your thumbs-up.
-> 3. After you approve, it writes the code and runs verification tests.
-> 4. It shows you the results in `walkthrough.md` and **commits to Git** automatically.
-
-### 4. The Maintenance
-Mid-work, you find a bug. You type **`/debug the login keeps failing`**.
-> **Antigravity** isolates the issue, fixes it, verifies the fix, and logs the lesson in [GEMINI.md](file:///GEMINI.md) so it never happens again.
-
----
-
-## 📂 The Artifact System
-
-| Artifact | Role |
+### Operational Commands
+| Command | Purpose |
 | :--- | :--- |
-| **`PROJECT.md`** | High-level goals and tech stack. |
-| **`ROADMAP.md`** | Multi-phase chronological plan with dependencies. |
-| **`task.md`** | The active checklist for the current phase. |
-| **`DECISIONS.md`**| The "Why" behind architectural choices. |
+| **`/status`** | Shows project health, progress, and AI accuracy metrics. |
+| **`/decision [topic]`** | Logs a major choice in `DECISIONS.md` so you know *why* the AI did something. |
+| **`/blocker [msg]`** | Used by the AI to stop work and ask you for help if it hits an external wall. |
+| **`/rollback`** | The "Panic Button." Instantly reverts the code to the last working version. |
 
 ---
 
-## 🛠️ Maintainer Guide
-To update the GSD system:
-1. Modify the workflows in `.agent/workflows/`.
-2. Mirror changes to `.gsd/templates/workflows/`.
-3. Commit and push to GitHub.
+## �️ Real-World Use Cases
+
+### 1. The Small Business Inventory Tracker
+* **User says**: `/godmode Create an app to track my shop inventory using barcode scanning.`
+* **AI does**: Defines the rules, sets up the camera access, builds the database, and tests it in a virtual browser. If the scanner fails, it fixes the code itself until it works.
+
+### 2. The Smart Home Dashboard
+* **User says**: `/godmode Build a dashboard for my Proxmox server that shows CPU usage.`
+* **AI does**: Researches your server settings, creates the visual charts, and ensures the data updates in real-time.
+
+---
+
+## 📂 The Archive & Memory
+When a phase is finished, run **`/archive-phase`**. This compresses the "clutter" and saves the "lessons" into your long-term knowledge base, keeping your AI fast and sharp.
+
+---
 
 Licensed under MIT. Originally adapted from Boris Cherny's workflows for Claude Code.
