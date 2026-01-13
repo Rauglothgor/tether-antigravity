@@ -8,7 +8,7 @@ Mapping conversational triggers to the GSD execution engine.
 - **Process**: 
     1. Conduct mission briefing and extract project pillars.
     2. Create `.planning/` directory.
-    3. Initialize `.planning/PROJECT.md` and `.planning/ROADMAP.md` from `.gsd/templates/`.
+    3. Initialize `.planning/PROJECT.md`, `.planning/ROADMAP.md`, and `.planning/DECISIONS.md` from `.gsd/templates/`.
     4. Populate `STATE.json` with initial project data.
 
 ### "Map this codebase"

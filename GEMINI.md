@@ -18,3 +18,4 @@ This is a living document that captures the project's technical context, specifi
 *Format: [YYYY-MM-DD] - Error: [What went wrong] - Correction: [How to prevent it]*
 
 - [2026-01-12] - Error: Initial implementation plan included environment-specific verification steps. - Correction: Generalize verification flows to be "evergreen" and environment-agnostic.
+- [2026-01-13] - Error: Deleted `DECISIONS.md` during root cleanup by missing it in the `move-item` command. - Correction: Use explicit globbing or verification list when moving artifacts to meta-directories; NEVER run `rmdir -Force` on planning directories without a secondary `list_dir` check.
