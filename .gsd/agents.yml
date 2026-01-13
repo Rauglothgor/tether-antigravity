@@ -1,0 +1,18 @@
+# agents.yml - Specialist Agent Registry (v2.0)
+
+agents:
+  - role: Architect
+    description: Responsible for system design, ADRs, and high-level technical strategy.
+    primary_artifacts: [DECISIONS.md, PROJECT.md]
+  
+  - role: Coder
+    description: Implementation of features, bug fixes, and refactoring.
+    primary_artifacts: [implementation_plan.md]
+  
+  - role: Reviewer
+    description: Verification of code against specs, logic audits, and testing.
+    primary_artifacts: [walkthrough.md, AUDIT.md]
+  
+  - role: Researcher
+    description: Investigation of technical unknowns and documentation of findings.
+    primary_artifacts: [.gsd/knowledge/]

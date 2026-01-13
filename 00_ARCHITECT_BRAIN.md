@@ -2,41 +2,45 @@
 
 This workspace follows the **Get Shit Done (GSD)** methodology adapted for Google Antigravity. These rules are MANDATORY for the AI agent.
 
-## Core Directives
+## Core Directives (v2.0)
 
 1. **Spec-Driven Development**:
-    - NEVER write code before updating the relevant planning artifacts.
-    - **Adversarial Planning**: Before coding, explicitly define a "Failure Mode Analysis" in `implementation_plan.md`—identifying the most likely failure point.
-2. **Artifact Layering**:
-    - **PROJECT.md**: High-level goals, constraints, and architecture.
-    - **ROADMAP.md**: Multi-phase execution path (with dependencies).
-    - **DECISIONS.md**: Architectural Decision Records (The "Why").
-    - **task.md** (Antigravity Native): The current active state of work.
-3. **Verified Atomic Commits**:
-    - A checkbox in `task.md` cannot be checked until a **verification step** has passed.
-    - Commit format: `feat(scope): task description` or `fix(scope): task description`.
-4. **Context & Failure Management**:
-    - **GEMINI.md**: Every AI mistake MUST be logged here to prevent repetition.
-    - **Ralph Wiggum Technique**: Perform a "Self-Explanation" pass for complex tasks.
-    - **Rollback First**: If verification fails twice, `/rollback` to the last known-good state and reassess the plan.
+    - NEVER write code before updating planning artifacts.
+    - **FEATURE_SPEC.md**: Requirement for any non-trivial change.
+    - **Adversarial Planning**: Explicitly define failure modes in plans.
+2. **Artifact Layering & Knowledge**:
+    - **PROJECT.md**: High-level goals and architecture.
+    - **ROADMAP.md**: Chronological execution path.
+    - **DECISIONS.md**: ADR tracking (The "Why").
+    - **.gsd/knowledge/**: Persistent store for patterns, lessons, and standards.
+3. **Enterprise Governance**:
+    - **Spec-Adherence**: VERIFICATION must manually check against acceptance criteria in `FEATURE_SPEC.md`.
+    - **Audit Log**: All major actions and approvals logged in `AUDIT.md`.
+    - **Specialist Roles**: Work is orchestrated between Architect, Coder, and Reviewer roles.
+4. **Resilience & Learning**:
+    - **GEMINI.md**: Error logs and shared memory.
+    - **Recursive Summarization**: Archiving a phase extracts and compresses knowledge.
+    - **STATE.json**: Performance metrics (FPR, Accuracy, Hallucination Index).
 
 ## Directory Structure
 - `00_ARCHITECT_BRAIN.md`: Core directives (Root).
 - `GEMINI.md`: Shared memory and error log (Root).
-- `.planning/`: Project goals, roadmap, and Architectural Decisions.
-    - `DECISIONS.md`: ADR tracking (The "Why").
-    - `ROADMAP.md`: Multi-phase execution path.
-- `.gsd/`: Supporting assets.
+- `.planning/`: Project goals, roadmap, and ADRs.
+- `.gsd/`: Enterprise configuration and knowledge.
+    - `knowledge/`: Persistent patterns and lessons.
+    - `agents.yml`: Specialist role registry.
+    - `tools.yml`: MCP and local tool registry.
+    - `AUDIT.md`: Action and approval tracking.
+    - `STATE.json`: Expanded performance metrics.
     - `FAILURE_MODES.md`: Failure scenario registry.
     - `RUNBOOKS.md`: Common procedure guides.
     - `TROUBLESHOOTING.md`: System quirk fixes.
-    - `templates/`: Reusable code and test patterns.
     - `memory/`: Compressed archives of completed phases.
-    - **STATE.json**: Project-level metrics and progress tracking (See [METRICS_SPEC.md](file:///.gsd/METRICS_SPEC.md)).
 
 ## Workflow Summary
-1. **Initialize** -> `gsd:init` -> Update `PROJECT.md` -> Create `ROADMAP.md`.
-2. **Execute Phase** -> Failure Mode Analysis -> verify -> Commit.
-3. **Handle Blockers** -> `/blocker [desc]` -> Log in `BLOCKERS.md`.
-4. **Resilience** -> `/status` (Check metrics) -> `/archive-phase` (Keep context lean).
-5. **Ship It** -> `/commit-push-pr`.
+1. **Specify** -> `/specify` -> Create `FEATURE_SPEC.md`.
+2. **Orchestrate** -> `/orchestrate` -> Assign roles and decompose tasks.
+3. **Execute** -> PLANNING -> EXECUTION -> VERIFICATION (Check Spec).
+4. **Archive** -> `/archive-phase` -> Extract lessons and lean context.
+5. **God Mode** -> `/godmode [goal]` -> Autonomous Turbo execution (Design -> Build -> Test -> Document).
+6. **Ship** -> `/commit-push-pr`.

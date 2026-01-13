@@ -29,3 +29,10 @@ If the AI becomes sluggish or unresponsive:
 1.  Provide the path to `00_ARCHITECT_BRAIN.md`.
 2.  Direct the agent to read `GEMINI.md` to learn about past mistakes.
 3.  Run `/status` to sync the agent with the current project metrics.
+
+## 5. God Mode Operations (`/godmode`)
+Use for end-to-end autonomous building.
+1.  **Objective**: Define a clear goal in the command.
+2.  **Monitoring**: The agent will run multiple tool calls sequentially without intervention.
+3.  **Handoff**: Review the final `/status` report and walkthrough.
+4.  **Audit**: Check `.gsd/AUDIT.md` to verify all tool decisions made during the turbo run.
