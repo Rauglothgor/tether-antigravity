@@ -54,7 +54,19 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 
 ---
 
-## 🗣️ Command Reference
+## � GSD 2.0 Quick-Start Cheat Sheet
+
+| Step | Action | Why? |
+| :--- | :--- | :--- |
+| **1. Start** | Type **`/godmode [your idea]`** | This kicks off the "Self-Building" process. |
+| **2. Observe** | Watch the **Artifacts** tab | You can see the blueprints and test results as they happen. |
+| **3. Check** | Run **`/status`** | Check the "Health Score." If it's below 70, the AI is struggling. |
+| **4. Fix** | If you see a bug, type **`/debug [issue]`** | The AI will perform an "exorcism" to find and kill the bug. |
+| **5. Finish** | Type **`/archive-phase`** | This moves old files to "Memory" so the AI doesn't get confused. |
+
+---
+
+## �🗣️ Command Reference
 
 ### The "God Mode" Trigger
 | Command | Action |
