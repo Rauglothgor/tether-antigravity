@@ -81,12 +81,24 @@ Mapping conversational triggers to the GSD execution engine.
 ### "/mcp-discover"
 - **Process**: Search for and registry new MCP tools in `.gsd/tools.yml`.
 
+### "/self-check"
+- **Action**: Verify GSD integrity.
+- **Checks**:
+    1. All referenced templates in `MANIFEST.md` exist.
+    2. `STATE.json` schema is valid.
+    3. `ROADMAP.md` phases match `STATE.json` progress.
+    4. No orphaned files in `.gsd/memory/`.
+
 ### "/godmode [goal]"
+- **Guardrails**:
+    - **Max Phases**: 5 (requires `/godmode-continue` to proceed).
+    - **Max Retries Per Phase**: 3 (triggers `/blocker` on 4th failure).
+    - **Token Budget**: ~50k tokens before mandatory `/archive-phase`.
 - **Process (TURBO MODE - 100% Autonomy)**:
     1. **Design**: Internally run `/specify` to generate `FEATURE_SPEC.md` and acceptance criteria.
     2. **Architect**: Generate `schema.md` and update `FAILURE_MODES.md` with top 3 risks.
     3. **Plan**: Initialize `ROADMAP.md` with atomic, testable phases.
     4. **Build**: Execute code changes. analyze logs on failure, and self-correct until logic passes.
-    5. **Validate**: Use Browser Agent for UI verification and confirm 100% spec-adherence.
+    5. **Validate**: Use **Browser Agent** (Specialist role for UI/UX verification) for UI verification and confirm 100% spec-adherence.
     6. **Document**: Log all actions in `.gsd/AUDIT.md` and update `STATE.json`.
     7. **Archive**: Auto-extract lessons/patterns and compress phase.

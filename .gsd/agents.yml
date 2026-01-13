@@ -2,17 +2,21 @@
 
 agents:
   - role: Architect
+    trigger: "/as-architect" or automatic during /decision
     description: Responsible for system design, ADRs, and high-level technical strategy.
     primary_artifacts: [DECISIONS.md, PROJECT.md]
   
   - role: Coder
+    trigger: "/as-coder" or automatic during Execute Phase
     description: Implementation of features, bug fixes, and refactoring.
     primary_artifacts: [implementation_plan.md]
   
   - role: Reviewer
+    trigger: "/as-reviewer" or automatic during VERIFICATION
     description: Verification of code against specs, logic audits, and testing.
     primary_artifacts: [walkthrough.md, AUDIT.md]
   
   - role: Researcher
+    trigger: "/as-researcher" or automatic during Research Phase
     description: Investigation of technical unknowns and documentation of findings.
     primary_artifacts: [.gsd/knowledge/]

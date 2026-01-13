@@ -7,7 +7,8 @@ local_tools:
 
 mcp_servers:
   # Registry for external Model Context Protocol servers
-  # Use /mcp-discover to add new tools here
-  - name: knowledge-graph
-    description: Contextual relationship mapping for large codebases.
+  # Use /mcp-discover to automatically search and add servers below
+  - name: "Example: filesystem-explorer"
+    path: "C:/path/to/server"
+    description: "Sample registry entry for local MCP servers."
     enabled: false

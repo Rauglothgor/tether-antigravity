@@ -33,7 +33,14 @@ The metric system serves three primary functions:
   "accuracy": {
     "first_pass_rate": "float (0.0-1.0)",
     "retry_avg": "float",
-    "learning_velocity": "string (e.g., '+5%')"
+    "learning_velocity": "float (velocity score)"
+  },
+  "context_lean_index": "float (0.0-1.0)",
+  "complexity": {
+    "total_files_modified": "integer",
+    "lines_of_code_delta": "integer",
+    "estimated_context_tokens": "integer",
+    "archive_recommended_at": "integer (default 25000)"
   }
 }
 ```
@@ -48,8 +55,20 @@ The percentage of tasks that successfully pass the **VERIFICATION** phase on the
 *   **Significance**: High FPR indicates that the AI's "internal model" of the code is accurate and that planning is robust.
 
 ### Learning Velocity
-The delta in accuracy over time, specifically correlating with the number of entries in `GEMINI.md`.
-*   **Success Indicator**: An increasing FPR alongside an increasing count of logged mistakes proves the Learning Loop is functional.
+The rate at which FPR improves relative to entries in `GEMINI.md`.
+*   **Formula**: `(Δ FPR / Δ GEMINI_Entries)`
+*   **Success Indicator**: A positive value proves the Learning Loop is functional.
+
+### Context Lean Index (CLI)
+Measures the ratio of unique information to redundant boilerplate in the active context.
+*   **Scale**: 1.0 (Optimal) to 0.0 (Saturated/Redundant).
+*   **Nominal**: >0.8. High redundancy triggers an automatic `/archive-phase`.
+
+### Complexity Budget
+Tracks cumulative system weight to predict context decay.
+*   **Total Files Modified**: Unique files touched in the current phase.
+*   **Estimated Tokens**: The token weight of primary artifacts.
+*   **Archive Recommended At**: Threshold (default 25k) where context pruning is mandatory.
 
 ### Retry Average
 The average number of cycles spent between **EXECUTION** and **VERIFICATION** before reaching "Done."

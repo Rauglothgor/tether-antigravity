@@ -17,10 +17,11 @@
         "completion_percentage": 100.0
     },
     "accuracy": {
-        "first_pass_rate": 1.0,
-        "estimate_accuracy": 1.0,
+        "first_pass_rate": null,
+        "estimate_accuracy": null,
         "hallucination_count": 0,
-        "retry_avg": 1.0
+        "retry_avg": null,
+        "_note": "Metrics populate after first completed phase"
     },
     "context_lean_index": 1.0
 }

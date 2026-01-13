@@ -18,7 +18,7 @@ Standard AI coding is fast but fragile. Context degrades, the AI guesses, and pr
 GSD uses Antigravity's **Global Workflows** to stay portable. You only need to do this once per machine:
 
 1. **Create the Workflow Folder** (if it doesn't exist):
-   - Navigate to `~/.gemini/antigravity/workflows/`.
+   - Navigate to your Antigravity workflows directory (e.g., `%APPDATA%\antigravity\workflows\` on Windows or `~/.gemini/antigravity/workflows/` on Linux/macOS).
 2. **Add the GSD Setup Workflow**:
    - Create a file named `gsd-setup.md`.
    - Paste the contents of [.gsd/templates/gsd-setup.md](file:///.gsd/templates/gsd-setup.md) into it.
@@ -54,7 +54,7 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 
 ---
 
-## � GSD 2.0 Quick-Start Cheat Sheet
+## 📊 GSD 2.0 Quick-Start Cheat Sheet
 
 | Step | Action | Why? |
 | :--- | :--- | :--- |
@@ -66,7 +66,7 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 
 ---
 
-## �🗣️ Command Reference
+## 🗣️ Command Reference
 
 ### The "God Mode" Trigger
 | Command | Action |
