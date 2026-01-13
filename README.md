@@ -102,11 +102,11 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 
 | Artifact | Role |
 | :--- | :--- |
-| **`PROJECT.md`** | High-level goals and tech stack. |
-| **`ROADMAP.md`** | Multi-phase chronological plan with dependencies. |
+| **`.planning/PROJECT.md`** | High-level goals and tech stack. |
+| **`.planning/ROADMAP.md`** | Multi-phase chronological plan with dependencies. |
 | **`task.md`** | The active checklist for the current phase. |
-| **`DECISIONS.md`**| The "Why" behind architectural choices. |
-| **`AUDIT.md`** | Structured log of all agent actions and approvals. |
+| **`.planning/DECISIONS.md`**| The "Why" behind architectural choices. |
+| **`.gsd/AUDIT.md`** | Structured log of all agent actions and approvals. |
 
 ---
 
@@ -116,4 +116,4 @@ To update the GSD system:
 2. Mirror changes to `.gsd/templates/workflows/`.
 3. Commit and push to GitHub.
 
-Licensed under MIT. Originally adapted from Boris Cherny's workflows for Claude Code.
+Licensed under MIT. Originally adapted from TÂCHES get-shit-done for Claude Code and influenced by Boris Cherny's workflows for Claude Code.
