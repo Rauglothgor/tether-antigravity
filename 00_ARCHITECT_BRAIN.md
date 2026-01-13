@@ -25,10 +25,13 @@ This workspace follows the **Get Shit Done (GSD)** methodology adapted for Googl
 - `GEMINI.md`: Shared memory and error log (Root).
 - `.gsd/`: Supporting assets.
     - `planning/`: Project goals, roadmaps, and blockers.
+    - `FAILURE_MODES.md`: Failure scenario registry.
+    - `RUNBOOKS.md`: Common procedure guides.
+    - `TROUBLESHOOTING.md`: System quirk fixes.
     - `workflows/`: Antigravity behavioral triggers.
     - `templates/`: Reusable code and test patterns.
     - `memory/`: Compressed archives of completed phases.
-    - `STATE.json`: Project-level metrics and progress tracking.
+    - **STATE.json**: Project-level metrics and progress tracking (See [METRICS_SPEC.md](file:///.gsd/METRICS_SPEC.md)).
 
 ## Workflow Summary
 1. **Initialize** -> `gsd:init` -> Update `PROJECT.md` -> Create `ROADMAP.md`.

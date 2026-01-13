@@ -39,7 +39,7 @@ Once GSD is pulled into a project:
 2. **Shared Memory (`GEMINI.md`)**:
    The AI logs its mistakes here. This document "fine-tunes" the AI to your project's specific quirks.
 3. **Automated State (`.gsd/STATE.json`)**:
-   Tracks progress, estimate accuracy, and project health metrics automatically.
+   Tracks progress, estimate accuracy, and project health metrics automatically. See the detailed [Metrics Specification](file:///.gsd/METRICS_SPEC.md).
 
 ---
 

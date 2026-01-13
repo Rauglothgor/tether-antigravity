@@ -17,10 +17,12 @@ Mapping conversational triggers to the GSD execution engine.
 - **Process**:
     1. Create/Update `task.md`.
     2. Switch to **PLANNING** mode (create `implementation_plan.md`).
-    3. Wait for user approval.
-    4. Switch to **EXECUTION** mode (implement code).
-    5. Switch to **VERIFICATION** mode (run tests & update `walkthrough.md`).
-    6. Commit and update `STATE.json`.
+    3. **Consult `FAILURE_MODES.md`**: Identify risks for the current task.
+    4. Wait for user approval.
+    5. Switch to **EXECUTION** mode (implement code).
+    6. Switch to **VERIFICATION** mode (run tests & update `walkthrough.md`).
+    7. **Consult `TROUBLESHOOTING.md`**: Resolve any verification friction.
+    8. Commit and update `STATE.json`.
 
 ### "Plan Phase [N]"
 - **Process**: Perform the planning stage only; do not start coding.
