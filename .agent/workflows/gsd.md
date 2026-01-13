@@ -5,7 +5,11 @@ Mapping conversational triggers to the GSD execution engine.
 ## Triggers
 
 ### "Initialize new project"
-- **Process**: Conduct mission briefing, extract project pillars, and create `PROJECT.md`.
+- **Process**: 
+    1. Conduct mission briefing and extract project pillars.
+    2. Create `.planning/` directory.
+    3. Initialize `.planning/PROJECT.md` and `.planning/ROADMAP.md` from `.gsd/templates/`.
+    4. Populate `STATE.json` with initial project data.
 
 ### "Map this codebase"
 - **Process**: Deep research into existing files to build an architecture map.

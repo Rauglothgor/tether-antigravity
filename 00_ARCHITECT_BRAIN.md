@@ -25,9 +25,10 @@ This workspace follows the **Get Shit Done (GSD)** methodology adapted for Googl
 ## Directory Structure
 - `00_ARCHITECT_BRAIN.md`: Core directives (Root).
 - `GEMINI.md`: Shared memory and error log (Root).
-- `.planning/`: Project goals, roadmap, and ADRs.
+- `.planning/`: [DYNAMICAL] Created on init; contains goals, roadmap, and ADRs.
 - `.gsd/`: Enterprise configuration and knowledge.
     - `knowledge/`: Persistent patterns and lessons.
+    - `meta/`: Internal GSD development history (Archive).
     - `agents.yml`: Specialist role registry.
     - `tools.yml`: MCP and local tool registry.
     - `AUDIT.md`: Action and approval tracking.
