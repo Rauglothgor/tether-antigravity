@@ -10,3 +10,4 @@
 | **Handover** | [handover.template.md](file:///.gsd/templates/handover.template.md) | Context preservation for pausing. |
 | **Phase Archive** | [phase_archive.template.md](file:///.gsd/templates/phase_archive.template.md) | Post-phase summary. |
 | **GSD Setup** | [gsd-setup.md](file:///.gsd/templates/gsd-setup.md) | Global workflow initialization. |
+| **Evergreen Config** | [evergreen-config.template.yaml](file:///.gsd/templates/evergreen-config.template.yaml) | Documentation drift prevention config. |

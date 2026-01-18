@@ -81,8 +81,38 @@ If you aren't a coder, think of GSD 2.0 as your **Self-Building Construction Cre
 | **`/specify [feature]`** | Generates a detailed `FEATURE_SPEC.md` before coding. |
 | **`/orchestrate`** | Decomposes roadmap phases into tasks for specialist roles. |
 | **`/archive-phase`** | Extracts lessons to knowledge base and clears context. |
+| **`/evergreen-verify`** | Scans docs for deprecated patterns (blocks if found). |
+| **`/self-check`** | Validates GSD integrity including evergreen verification. |
 | **`/rollback`** | **Panic Button**. Reverts code to the last working version. |
 | **`/blocker [msg]`** | Used by the AI to stop work and ask for help. |
+
+---
+
+## 🌲 Evergreen Documentation
+
+GSD prevents **documentation drift**—when outdated patterns in markdown files mislead AI agents into using legacy workflows or folder structures.
+
+### How It Works
+- **`/evergreen-verify`**: Scans all markdown files for forbidden patterns (deprecated folders, obsolete scripts, legacy terminology).
+- **Hard Stop**: If violations are found, operations like `/godmode` and `/self-check` are blocked until resolved.
+- **Clear Remediation**: The scanner outputs specific files and patterns to fix.
+
+### Configuration
+Projects can customize the forbidden patterns by creating `.gsd/evergreen-config.yaml`:
+
+```yaml
+version: "1.0"
+forbidden_folders:
+  - "_legacy/"
+forbidden_scripts:
+  - "old-deploy.ps1"
+forbidden_terms:
+  - "DeprecatedFeature"
+skip_paths:
+  - ".gsd/archive"
+```
+
+See [evergreen-config.template.yaml](file:///.gsd/templates/evergreen-config.template.yaml) for the full template.
 
 ---
 

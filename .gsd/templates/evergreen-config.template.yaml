@@ -1,0 +1,35 @@
+# GSD Evergreen Configuration
+# Extends GSD defaults - patterns listed here are ADDED to the default set.
+# See: .gsd/scripts/verify-evergreen-docs.ps1 for default patterns.
+
+version: "1.0"
+
+# Folder patterns that should not appear in documentation
+# (References to these suggest outdated architecture documentation)
+forbidden_folders:
+  # Add project-specific deprecated folders here
+  # - "_legacy/"
+  # - "_old_engine/"
+
+# Script filenames that should not appear in documentation
+# (References to these suggest outdated automation documentation)
+forbidden_scripts:
+  # Add project-specific deprecated scripts here
+  # - "old-deploy.ps1"
+  # - "legacy-build.sh"
+
+# Terminology that should not appear in documentation
+# (References to these suggest outdated concepts or branding)
+forbidden_terms:
+  # Add project-specific deprecated terms here
+  # - "OldProductName"
+  # - "DeprecatedFeature"
+
+# Paths to exclude from scanning
+# (Archives, generated content, and third-party dependencies)
+skip_paths:
+  - ".gsd/archive"
+  - ".gsd/meta"
+  - ".gsd/memory"
+  - "node_modules"
+  - ".git"

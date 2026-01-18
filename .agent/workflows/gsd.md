@@ -26,7 +26,8 @@ Mapping conversational triggers to the GSD execution engine.
     5. Switch to **EXECUTION** mode (implement code).
     6. Switch to **VERIFICATION** mode (run tests & update `walkthrough.md`).
     7. **Consult `TROUBLESHOOTING.md`**: Resolve any verification friction.
-    8. Commit and update `STATE.json`.
+    8. **Documentation Sync**: Update user-facing docs (README, usage guides) to reflect new features.
+    9. Commit and update `STATE.json`.
 
 ### "Plan Phase [N]"
 - **Process**: Perform the planning stage only; do not start coding.
@@ -81,6 +82,13 @@ Mapping conversational triggers to the GSD execution engine.
 ### "/mcp-discover"
 - **Process**: Search for and registry new MCP tools in `.gsd/tools.yml`.
 
+### "/evergreen-verify"
+- **Action**: Scan documentation for legacy residue.
+- **Process**:
+    1. Run `.gsd/scripts/verify-evergreen-docs.ps1`.
+    2. If FAIL (exit code 1), report legacy residue to user and block.
+    3. If PASS (exit code 0), proceed silently.
+
 ### "/self-check"
 - **Action**: Verify GSD integrity.
 - **Checks**:
@@ -88,9 +96,11 @@ Mapping conversational triggers to the GSD execution engine.
     2. `STATE.json` schema is valid.
     3. `ROADMAP.md` phases match `STATE.json` progress.
     4. No orphaned files in `.gsd/memory/`.
+    5. **Evergreen Verification**: No documentation residue detected (runs `/evergreen-verify`).
 
 ### "/godmode [goal]"
 - **Guardrails**:
+    - **Pre-Flight**: Run `/evergreen-verify` before starting (hard block on failure).
     - **Max Phases**: 5 (requires `/godmode-continue` to proceed).
     - **Max Retries Per Phase**: 3 (triggers `/blocker` on 4th failure).
     - **Token Budget**: ~50k tokens before mandatory `/archive-phase`.

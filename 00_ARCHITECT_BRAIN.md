@@ -15,18 +15,24 @@ This workspace follows the **Get Shit Done (GSD)** methodology adapted for Googl
     - **.gsd/knowledge/**: Persistent store for patterns, lessons, and standards.
 3. **Enterprise Governance**:
     - **Spec-Adherence**: VERIFICATION must manually check against acceptance criteria in `FEATURE_SPEC.md`.
+    - **Documentation Sync**: User-facing docs (README, usage guides) MUST be updated to reflect new features before commit.
     - **Audit Log**: All major actions and approvals logged in `AUDIT.md`.
     - **Specialist Roles**: Work is orchestrated between Architect, Coder, and Reviewer roles.
 4. **Resilience & Learning**:
     - **GEMINI.md**: Error logs and shared memory.
     - **Recursive Summarization**: Archiving a phase extracts and compresses knowledge.
     - **STATE.json**: Performance metrics (FPR, Accuracy, Hallucination Index).
+5. **Evergreen Documentation**:
+    - **No Documentation Drift**: Markdown files must not reference deprecated patterns.
+    - **Pre-Flight Verification**: `/evergreen-verify` runs before `/godmode` and as part of `/self-check`.
+    - **Hard Stop**: Violations block operations until resolved.
 
 ## Directory Structure
 - `00_ARCHITECT_BRAIN.md`: Core directives (Root).
 - `GEMINI.md`: Shared memory and error log (Root).
 - `.planning/`: Project goals, roadmap, and Architectural Decisions (ADRs).
 - `.gsd/`: Enterprise configuration and knowledge.
+    - `scripts/`: Automation scripts (evergreen verification, etc.).
     - `knowledge/`: Persistent patterns and lessons.
     - `meta/`: Internal GSD development history (Archive).
     - `agents.yml`: Specialist role registry.
