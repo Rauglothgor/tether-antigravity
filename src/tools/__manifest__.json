@@ -1,0 +1,49 @@
+{
+    "version": "1.0",
+    "description": "Auto-discovered project tools. AI scans this manifest on session start.",
+    "tools": [
+        {
+            "name": "example-lint",
+            "description": "Run project linter on all source files",
+            "command": "npm run lint",
+            "triggers": [
+                "lint",
+                "run linter",
+                "check code style"
+            ],
+            "safe_to_auto_run": true
+        },
+        {
+            "name": "example-test",
+            "description": "Run unit tests",
+            "command": "npm test",
+            "triggers": [
+                "test",
+                "run tests",
+                "unit tests"
+            ],
+            "safe_to_auto_run": true
+        },
+        {
+            "name": "example-build",
+            "description": "Build production bundle",
+            "command": "npm run build",
+            "triggers": [
+                "build",
+                "production build",
+                "bundle"
+            ],
+            "safe_to_auto_run": false
+        },
+        {
+            "name": "example-deploy",
+            "description": "Deploy to production (DANGEROUS)",
+            "command": "npm run deploy",
+            "triggers": [
+                "deploy",
+                "push to production"
+            ],
+            "safe_to_auto_run": false
+        }
+    ]
+}

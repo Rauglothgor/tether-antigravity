@@ -1,6 +1,6 @@
-# GSD Metrics & State Specification (v1.0)
+# TETHER Metrics & State Specification (v1.0)
 
-This document defines the quantitative state-tracking mechanism for the GSD methodology. While `GEMINI.md` handles qualitative lessons, `.gsd/STATE.json` tracks the numerical performance and project health thresholds.
+This document defines the quantitative state-tracking mechanism for the TETHER methodology. While `GEMINI.md` handles qualitative lessons, `.tether/STATE.json` tracks the numerical performance and project health thresholds.
 
 ## 1. Purpose
 The metric system serves three primary functions:
@@ -90,6 +90,6 @@ The agent adjusts its logic automatically based on the `health.score`:
 ---
 
 ## 5. Lifecycle
-- **Initialization**: Triggered during the first `gsd:init` or the first completed `Execute Phase`.
+- **Initialization**: Triggered during the first initialization or the first completed `Execute Phase`.
 - **Updates**: Updated automatically at the end of every `Execute Phase` cycle.
 - **Reporting**: Current metrics are summarized whenever the user runs the `/status` command.

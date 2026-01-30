@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    GSD Evergreen Documentation Scanner - Prevents documentation drift.
+    TETHER Evergreen Documentation Scanner - Prevents documentation drift.
 .DESCRIPTION
     Scans markdown files for deprecated patterns (folders, scripts, terminology)
     that could mislead AI agents into using legacy workflows.
@@ -9,8 +9,8 @@
     - 0: PASS - No documentation residue detected
     - 1: FAIL - Legacy patterns found (blocks downstream operations)
 .EXAMPLE
-    .\.gsd\scripts\verify-evergreen-docs.ps1
-    .\.gsd\scripts\verify-evergreen-docs.ps1 -ConfigPath ".\.gsd\evergreen-config.yaml"
+    .\.tether\scripts\verify-evergreen-docs.ps1
+    .\.tether\scripts\verify-evergreen-docs.ps1 -ConfigPath ".\.tether\evergreen-config.yaml"
 #>
 
 param(
@@ -25,7 +25,7 @@ param(
 )
 
 # ============================================================================
-# DEFAULT CONFIGURATION (GSD-Level Defaults - Option B)
+# DEFAULT CONFIGURATION (TETHER-Level Defaults)
 # ============================================================================
 $DefaultConfig = @{
     Version          = "1.0"
@@ -47,9 +47,9 @@ $DefaultConfig = @{
         # Add project-specific legacy terms here
     )
     SkipPaths        = @(
-        ".gsd\archive",
-        ".gsd\meta",
-        ".gsd\memory",
+        ".tether\archive",
+        ".tether\meta",
+        ".tether\memory",
         "node_modules",
         ".git",
         ".next",
@@ -66,7 +66,7 @@ function Load-EvergreenConfig {
     
     # Priority: Explicit path > Project config > Defaults
     $configFile = if ($Path) { $Path }
-    elseif (Test-Path ".\.gsd\evergreen-config.yaml") { ".\.gsd\evergreen-config.yaml" }
+    elseif (Test-Path ".\.tether\evergreen-config.yaml") { ".\.tether\evergreen-config.yaml" }
     elseif (Test-Path ".\evergreen-config.yaml") { ".\evergreen-config.yaml" }
     else { $null }
     
@@ -104,7 +104,7 @@ function Load-EvergreenConfig {
         }
     }
     
-    Write-Host "[CONFIG] Using GSD defaults (no project config found)" -ForegroundColor Yellow
+    Write-Host "[CONFIG] Using TETHER defaults (no project config found)" -ForegroundColor Yellow
     return $DefaultConfig
 }
 
@@ -230,7 +230,7 @@ function Format-EvergreenReport {
     Write-Host ""
     Write-Host "REMEDIATION:" -ForegroundColor Cyan
     Write-Host "  1. Update the listed files to remove deprecated references." -ForegroundColor White
-    Write-Host "  2. If a pattern is valid, add it to .gsd/evergreen-config.yaml skip_paths." -ForegroundColor White
+    Write-Host "  2. If a pattern is valid, add it to .tether/evergreen-config.yaml skip_paths." -ForegroundColor White
     Write-Host "  3. Re-run this script to verify fixes." -ForegroundColor White
     Write-Host ""
     
@@ -241,7 +241,7 @@ function Format-EvergreenReport {
 # MAIN EXECUTION
 # ============================================================================
 Write-Host ""
-Write-Host "GSD Evergreen Documentation Scanner v1.0" -ForegroundColor Magenta
+Write-Host "TETHER Evergreen Documentation Scanner v1.0" -ForegroundColor Magenta
 Write-Host "========================================" -ForegroundColor Magenta
 Write-Host ""
 

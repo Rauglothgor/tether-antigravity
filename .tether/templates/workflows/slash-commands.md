@@ -1,6 +1,6 @@
-# GSD Slash Commands
+# TETHER Slash Commands
 
-Custom operational triggers for the Get Shit Done system.
+Custom operational triggers for the TETHER system.
 
 ## `/status`
 - **Action**: Display project health, progress, and estimate accuracy.
@@ -16,7 +16,7 @@ Custom operational triggers for the Get Shit Done system.
 
 ## `/archive-phase`
 - **Action**: Compress completed phase history to save context.
-- **Process**: Move old `task.md` and `walkthrough.md` files to `.gsd/memory/`.
+- **Process**: Move old `task.md` and `walkthrough.md` files to `.tether/memory/`.
 
 ## `/ralph-wiggum`
 - **Action**: Perform a "Self-Explanation" pass for complex tasks.

@@ -1,6 +1,6 @@
-# GSD Evergreen Configuration
-# Extends GSD defaults - patterns listed here are ADDED to the default set.
-# See: .gsd/scripts/verify-evergreen-docs.ps1 for default patterns.
+# TETHER Evergreen Configuration
+# Extends TETHER defaults - patterns listed here are ADDED to the default set.
+# See: .tether/scripts/verify-evergreen-docs.ps1 for default patterns.
 
 version: "1.0"
 
@@ -28,8 +28,8 @@ forbidden_terms:
 # Paths to exclude from scanning
 # (Archives, generated content, and third-party dependencies)
 skip_paths:
-  - ".gsd/archive"
-  - ".gsd/meta"
-  - ".gsd/memory"
+  - ".tether/archive"
+  - ".tether/meta"
+  - ".tether/memory"
   - "node_modules"
   - ".git"

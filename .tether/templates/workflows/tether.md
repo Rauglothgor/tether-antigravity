@@ -1,6 +1,6 @@
-# GSD Core Workflow
+# TETHER Core Workflow
 
-Mapping conversational triggers to the GSD execution engine.
+Mapping conversational triggers to the TETHER execution engine.
 
 ## Triggers
 

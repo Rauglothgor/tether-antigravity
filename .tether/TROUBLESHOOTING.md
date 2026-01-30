@@ -1,4 +1,4 @@
-# TROUBLESHOOTING.md - GSD System Quirks & Fixes (v1.0)
+# TROUBLESHOOTING.md - TETHER System Quirks & Fixes (v1.0)
 
 Quick fixes for common technical issues and behavior anomalies.
 
@@ -9,7 +9,7 @@ Quick fixes for common technical issues and behavior anomalies.
     2. Recalculate manually if necessary and update `STATE.json` with `Overwrite: true`.
 
 ## 2. Global Workflow Missing
-*   **Issue**: `gsd:setup` or other global triggers don't respond.
+*   **Issue**: Setup or other global triggers don't respond.
 *   **Fix**: 
     1. Ensure the `.agent/workflows/` directory contains `gsd.md`.
     2. Check if the parent workspace has correctly activated the global workflow template.

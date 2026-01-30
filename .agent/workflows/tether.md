@@ -1,6 +1,6 @@
-# GSD Core Workflow
+# TETHER Core Workflow
 
-Mapping conversational triggers to the GSD execution engine.
+Mapping conversational triggers to the TETHER execution engine.
 
 ## Triggers
 
@@ -8,7 +8,7 @@ Mapping conversational triggers to the GSD execution engine.
 - **Process**: 
     1. Conduct mission briefing and extract project pillars.
     2. Create `.planning/` directory.
-    3. Initialize `.planning/PROJECT.md`, `.planning/ROADMAP.md`, and `.planning/DECISIONS.md` from `.gsd/templates/`.
+    3. Initialize `.planning/PROJECT.md`, `.planning/ROADMAP.md`, and `.planning/DECISIONS.md` from `.tether/templates/`.
     4. Populate `STATE.json` with initial project data.
 
 ### "Map this codebase"
@@ -41,7 +41,37 @@ Mapping conversational triggers to the GSD execution engine.
 ### "Resume work"
 - **Process**: Read the last handoff summary and restore context.
 
-## GSD 2.0 Advanced Commands
+### "/status"
+- **Action**: Display project health with Traffic Light summary.
+- **Output Format**:
+    ```
+    ## 🚦 Project Status
+    
+    | Metric | Value | Status |
+    |:--|:--|:--|
+    | Health Score | 85 | 🟢 Nominal |
+    | Current Phase | 2/5 | In Progress |
+    | Context Usage | 45% | 🟢 Safe |
+    | First-Pass Rate | 78% | 🟢 Good |
+    
+    ### Traffic Light Guide
+    - 🟢 Nominal (85-100): Everything working well
+    - 🟡 Warning (70-84): Proceed with caution
+    - 🔴 Critical (<70): Stop and review
+    ```
+- **Process**:
+    1. Read `STATE.json` for metrics.
+    2. Calculate Traffic Light status for each metric.
+    3. Display formatted output.
+
+### "/tools"
+- **Action**: Discover and list project-specific tools.
+- **Process**:
+    1. Scan `src/tools/__manifest__.json` if exists.
+    2. List available tools with descriptions.
+    3. Show trigger phrases for each tool.
+
+## TETHER Advanced Commands
 
 ### "/specify [feature]"
 - **Process**:
@@ -74,28 +104,28 @@ Mapping conversational triggers to the GSD execution engine.
 
 ### "/archive-phase"
 - **Process**:
-    1. Extract lessons into `.gsd/knowledge/lessons/`.
-    2. Extract patterns into `.gsd/knowledge/patterns/`.
+    1. Extract lessons into `.tether/knowledge/lessons/`.
+    2. Extract patterns into `.tether/knowledge/patterns/`.
     3. Summarize KB for context preservation.
-    4. Move files to `.gsd/memory/`.
+    4. Move files to `.tether/memory/`.
 
 ### "/mcp-discover"
-- **Process**: Search for and registry new MCP tools in `.gsd/tools.yml`.
+- **Process**: Search for and registry new MCP tools in `.tether/tools.yml`.
 
 ### "/evergreen-verify"
 - **Action**: Scan documentation for legacy residue.
 - **Process**:
-    1. Run `.gsd/scripts/verify-evergreen-docs.ps1`.
+    1. Run `.tether/scripts/verify-evergreen-docs.ps1`.
     2. If FAIL (exit code 1), report legacy residue to user and block.
     3. If PASS (exit code 0), proceed silently.
 
 ### "/self-check"
-- **Action**: Verify GSD integrity.
+- **Action**: Verify TETHER integrity.
 - **Checks**:
     1. All referenced templates in `MANIFEST.md` exist.
     2. `STATE.json` schema is valid.
     3. `ROADMAP.md` phases match `STATE.json` progress.
-    4. No orphaned files in `.gsd/memory/`.
+    4. No orphaned files in `.tether/memory/`.
     5. **Evergreen Verification**: No documentation residue detected (runs `/evergreen-verify`).
 
 ### "/godmode [goal]"
@@ -110,5 +140,5 @@ Mapping conversational triggers to the GSD execution engine.
     3. **Plan**: Initialize `ROADMAP.md` with atomic, testable phases.
     4. **Build**: Execute code changes. analyze logs on failure, and self-correct until logic passes.
     5. **Validate**: Use **Browser Agent** (Specialist role for UI/UX verification) for UI verification and confirm 100% spec-adherence.
-    6. **Document**: Log all actions in `.gsd/AUDIT.md` and update `STATE.json`.
+    6. **Document**: Log all actions in `.tether/AUDIT.md` and update `STATE.json`.
     7. **Archive**: Auto-extract lessons/patterns and compress phase.

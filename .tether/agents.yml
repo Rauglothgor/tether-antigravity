@@ -19,4 +19,4 @@ agents:
   - role: Researcher
     trigger: "/as-researcher" or automatic during Research Phase
     description: Investigation of technical unknowns and documentation of findings.
-    primary_artifacts: [.gsd/knowledge/]
+    primary_artifacts: [.tether/knowledge/]

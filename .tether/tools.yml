@@ -1,9 +1,9 @@
 # tools.yml - Tool Discovery Registry (v2.0)
 
 local_tools:
-  - name: gsd-cli
-    description: Internal GSD command line interface for state management.
-    path: bin/gsd.ps1
+  - name: tether-cli
+    description: Internal TETHER command line interface for state management.
+    path: bin/tether.ps1
 
 mcp_servers:
   # Registry for external Model Context Protocol servers
