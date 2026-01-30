@@ -1,181 +1,139 @@
-# Getting Started with TETHER
+# TETHER Antigravity User Manual
 
-> *From zero to productive in 15 minutes.*
+> *The definitive guide to disciplined AI-human collaboration.*
 
-This guide walks you through your first day with TETHER. By the end, you'll have a working setup and know how to collaborate effectively with your AI assistant.
-
----
-
-## Prerequisites
-
-- **Google Antigravity** (or compatible AI IDE) installed
-- A project you want to work on (new or existing)
-- 15 minutes of uninterrupted time
+TETHER (v3.0) is a safety cage and workflow protocol for Google Antigravity. It transforms the AI from a simple autocomplete engine into a disciplined engineering partner that follows a strict **"Plan-Then-Execute"** mandate.
 
 ---
 
-## Step 1: Clone TETHER (2 minutes)
+## 🏛️ Core Philosophy: The Safety Cage
+
+TETHER isn't just a set of templates; it's a **guardrail system** designed to prevent "AI Drift"—the tendency for LLMs to cut corners, hallucinate, or lose track of project goals.
+
+### Mandatory Guardrails
+- **Plan-Then-Execute**: The AI *must* create an implementation plan and wait for your approval before writing a single line of code.
+- **Metronome Anti-Shortcut Checks**: Every 5 tool calls, the AI pauses to self-audit. It checks for signs of "cutting corners" (like bulk file deletes or using placeholders).
+- **60% Context Budget**: To keep the AI sharp, TETHER enforces a context limit. When the AI reaches 60% of its memory capacity, it must archive the current phase and clear its head.
+- **No Placeholders**: You will never see `// ... rest of code`. TETHER AI writes complete, functional code or breaks the task into smaller fragments.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Installation
+To bring TETHER into your project:
 
 ```powershell
-# Clone into your project directory
-git clone https://github.com/Rauglothgor/tether-antigravity.git my-project
-cd my-project
-
-# Or add to existing project
-git clone https://github.com/Rauglothgor/tether-antigravity.git temp-tether
-Copy-Item -Recurse temp-tether/* . -Force
-Remove-Item -Recurse temp-tether
+# In your project root
+git clone https://github.com/Rauglothgor/tether-antigravity.git .tether-temp
+Copy-Item -Recurse .tether-temp/* . -Force
+Remove-Item -Recurse .tether-temp
 ```
 
-You should now have these files:
-- `00_ARCHITECT_BRAIN.md` - The rules your AI must follow
-- `GEMINI.md` - Where the AI logs its mistakes
-- `.planning/` - Your project planning artifacts
-- `.tether/` - System configuration (mostly for AI)
+### 2. Initialization
+Once the files are in place, tell the AI:
+> "Initialize TETHER for this project."
+
+This will create your core planning directories:
+- `.planning/`: Where your goals and roadmaps live.
+- `.tether/`: System configuration and internal memory.
+- `00_ARCHITECT_BRAIN.md`: The constitution the AI follows.
 
 ---
 
-## Step 2: Define Your Project (5 minutes)
+## 🛠️ The TETHER Workflow
 
-Open `.planning/PROJECT.md` and fill in:
+A standard TETHER development cycle follows four distinct phases:
 
-```markdown
-# Project: [Your Project Name]
-
-## North Star
-What's the one-sentence goal? (e.g., "Build a CLI tool that converts PDFs to markdown")
-
-## Tech Stack
-- Language: [e.g., Python 3.11]
-- Framework: [e.g., Click for CLI]
-- Database: [e.g., None / SQLite / PostgreSQL]
-
-## Architecture
-Brief description of how the pieces fit together.
-```
-
-Then open `.planning/ROADMAP.md` and outline your phases:
-
-```markdown
-# Roadmap
-
-## Phase 1: Foundation
-- [ ] Set up project structure
-- [ ] Install dependencies
-- [ ] Create basic CLI skeleton
-
-## Phase 2: Core Feature
-- [ ] Implement PDF parsing
-- [ ] Implement markdown conversion
-- [ ] Add error handling
-
-## Phase 3: Polish
-- [ ] Add tests
-- [ ] Write documentation
-- [ ] Prepare for release
-```
+1.  **Specify** (`/specify`): Define exactly what you want. This creates a `FEATURE_SPEC.md`.
+2.  **Plan**: The AI creates an `implementation_plan.md`. You review and approve.
+3.  **Execute**: The AI writes the code, following strict quality standards and auto-linting.
+4.  **Verify**: The AI runs tests and creates a `walkthrough.md` to prove it works.
+5.  **Archive** (`/archive-phase`): Lessons are extracted, and context is cleared for the next task.
 
 ---
 
-## Step 3: Your First Conversation (3 minutes)
+## ⌨️ Slash Command Reference
 
-Open Antigravity and start with:
+Commands that give you total control over the engine.
 
-> "Read the project files and tell me what you understand about this project."
-
-The AI will:
-1. Read `00_ARCHITECT_BRAIN.md` to learn the rules
-2. Read `.planning/PROJECT.md` to understand your goals
-3. Read `.planning/ROADMAP.md` to see the plan
-4. Report back what it understood
-
-If it got something wrong, correct it now. This is your baseline.
-
----
-
-## Step 4: Start Building (5 minutes)
-
-Pick the first task from your ROADMAP and say:
-
-> "Let's start Phase 1. Begin with [first task]."
-
-The AI will:
-1. Create an `implementation_plan.md` (you approve this)
-2. Execute the work
-3. Verify the changes work
-4. Update progress in `task.md`
-
-**Key commands to remember:**
-
-| Say This | Get This |
-|:--|:--|
-| `/status` | Current progress + health score |
-| `/help` | All available commands |
-| `/debug [issue]` | Structured bug investigation |
-| `/rollback` | Undo last change |
+| Command | Action | Best Used When... |
+|:---|:---|:---|
+| `/status` | Shows project health & Traffic Lights. | You want to see if the AI is "tired" or off-track. |
+| `/help` | Displays the command reference. | You forget what a command does. |
+| `/specify [feature]` | Generates a detailed requirement spec. | You're starting a new feature. |
+| `/debug [issue]` | Starts a structured investigation. | Something broke and you don't know why. |
+| `/investigate [q]` | Spawns a sub-agent for research. | You need to research a library without making edits. |
+| `/decision [topic]` | Logs an Architectural Decision (ADR). | You're choosing between two different approaches. |
+| `/godmode [goal]` | Enables full autonomous building. | You have a clear goal and want the AI to handle it end-to-end. |
+| `/archive-phase` | Compresses context and saves lessons. | You've finished a major task and the AI feels "slow". |
+| `/evergreen-verify` | Scans for deprecated documentation. | You want to ensure your docs match the current code. |
+| `/rollback` | Reverts the last set of changes. | The AI went in the wrong direction. |
 
 ---
 
-## Step 5: (Optional) Set Up Global Memory
+## 📂 Key Artifacts
 
-If you work on multiple projects, set up cross-project memory:
+Understanding the files that power your workspace.
 
-```powershell
-# Create global memory directory (one-time)
-$globalMem = "$env:USERPROFILE\antigravity-global-memory"
-New-Item -ItemType Directory -Force -Path "$globalMem\solutions"
-New-Item -ItemType Directory -Force -Path "$globalMem\patterns"
-New-Item -ItemType Directory -Force -Path "$globalMem\mistakes"
+### The Planning Layer (`.planning/`)
+- **[PROJECT.md](file:///.planning/PROJECT.md)**: The "North Star". Defines the tech stack and high-level architecture.
+- **[ROADMAP.md](file:///.planning/ROADMAP.md)**: The chronological path. Keeps work organized in phases.
+- **[DECISIONS.md](file:///.planning/DECISIONS.md)**: The "Why". Tracks every major technical choice.
+- **[FEATURE_SPEC.md](file:///.planning/FEATURE_SPEC.md)**: The "What". Detailed requirements for a specific feature.
 
-# In each project, create symlink
-cd C:\path\to\your\project
-New-Item -ItemType SymbolicLink -Path ".thoughts" -Target $globalMem
-```
-
-Now learnings from Project A help with Project B.
-
-See [GLOBAL_MEMORY_SETUP.md](.tether/GLOBAL_MEMORY_SETUP.md) for full details.
+### The Logic Layer (`.tether/`)
+- **[STATE.json](file:///.tether/STATE.json)**: The AI's internal metrics (accuracy, memory usage, health).
+- **[FAILURE_MODES.md](file:///.tether/FAILURE_MODES.md)**: A registry of known risks and how to avoid them.
+- **[SKILLS_INDEX.md](file:///.tether/SKILLS_INDEX.md)**: Reusable patterns the AI can "learn" from.
+- **[AUDIT.md](file:///.tether/AUDIT.md)**: A log of every approval and major action.
 
 ---
 
-## Common First-Day Mistakes
+## 🧠 Global Memory (`.thoughts`)
 
-### ❌ Jumping straight to code
-**Do this instead:** Fill out `PROJECT.md` and `ROADMAP.md` first. The AI works better with context.
+TETHER allows you to share learnings across **different projects**.
 
-### ❌ Approving plans you don't understand
-**Do this instead:** If the AI's plan has steps you don't follow, ask "Explain step 3 in simpler terms."
-
-### ❌ Ignoring verification failures
-**Do this instead:** When something fails verification, run `/debug [issue]` before trying again.
-
-### ❌ Letting the AI ramble
-**Do this instead:** Use `/status` to get a quick summary. Say "be concise" if responses are too long.
+By creating a symbolic link named `.thoughts` that points to a central directory on your PC, Project A's mistakes can become Project B's wisdom. See [GLOBAL_MEMORY_SETUP.md](file:///.tether/GLOBAL_MEMORY_SETUP.md) for setup instructions.
 
 ---
 
-## What's Next?
+## ⚡ Advanced Power Features
 
-- **Learn the commands:** Run `/help` to see everything available
-- **Explore patterns:** Check [SKILLS_INDEX.md](.tether/SKILLS_INDEX.md) for reusable patterns
-- **Go autonomous:** Try `/godmode [goal]` for end-to-end feature building
-- **Read the philosophy:** The README explains *why* TETHER works this way
+### God Mode
+Run `/godmode [goal]` to trigger the **BMad Method** (Brain → Map → Act → Done). The AI will autonomously:
+1. Specify the feature.
+2. Build the architecture.
+3. Execute the code.
+4. Verify with a browser sub-agent.
+5. Archive the result.
 
----
-
-## Quick Reference Card
-
-```
-/status          → Project health check
-/help            → All commands  
-/debug [issue]   → Bug investigation
-/rollback        → Undo last change
-/godmode [goal]  → Autonomous building
-/archive-phase   → Save context, start fresh
-```
-
-**The Golden Rule:** If the AI does something wrong, make it log the mistake in `GEMINI.md`. That's how it learns.
+### Swarm Architecture
+For massive tasks, TETHER can spawn multiple sub-agents to work in parallel. Mention "Swarm Mode" in your plan to activate multi-agent orchestration.
 
 ---
 
-*Welcome to TETHER. Now go build something.*
+## 🚦 Understanding Traffic Lights
+
+The `/status` command uses a traffic light system to report on system health:
+
+- 🟢 **Nominal (85-100)**: AI is sharp, context is clean. Proceed with complex tasks.
+- 🟡 **Warning (70-84)**: Context is getting heavy. The AI might start missing details. Consider `/archive-phase`.
+- 🔴 **Critical (<70)**: High risk of hallucinations. **Stop work immediately** and run `/archive-phase`.
+
+---
+
+## ❓ FAQ & Common Pitfalls
+
+**Q: The AI is ignoring my instructions.**
+**A:** Check `00_ARCHITECT_BRAIN.md`. If the rules are being violated, remind the AI to "Consult the Architect Brain."
+
+**Q: I lost my implementation plan.**
+**A:** Plans are always stored in the artifacts directory. Run `/status` to find the path to your current task log.
+
+**Q: Can I skip the planning phase?**
+**A:** No. TETHER is designed to prevent technical debt. Skipping the plan is a "Hard Violation" and will degrade the AI's performance.
+
+---
+
+*Welcome to TETHER. Discipline is freedom.*
